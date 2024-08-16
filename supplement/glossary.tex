@@ -1,0 +1,30 @@
+
+\chapter*{List of Symbols}
+
+For some theses with a lot of symbols, a glossary is useful.
+
+\addcontentsline{toc}{chapter}{List of Symbols}
+
+\newcommand{\refandpage}[1]{~\ref{#1} & ~\pageref{#1}}
+
+\begin{longtable*}{l l l r}
+
+\hline \multicolumn{1}{l}{Symbol}   & \multicolumn{1}{l}{Meaning} & \multicolumn{1}{l}{Definition} & \multicolumn{1}{l}{Page} \\ \hline
+\endfirsthead
+
+\multicolumn{3}{c}
+{{\bfseries List of Symbols -- continued from previous page}} \\
+\hline \multicolumn{1}{l}{Symbol}   & \multicolumn{1}{l}{Meaning} & \multicolumn{1}{l}{Definition} & \multicolumn{1}{l}{Page} \\ \hline
+\endhead
+
+\hline \multicolumn{3}{r}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+
+        %Symbol & Meaning & Definition & Page \\
+        %\hline 
+        $\actuniv$ & the universe of activities & Section~\refandpage{sec:prelim:actlang}  \\
+\end{longtable*}

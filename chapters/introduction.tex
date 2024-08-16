@@ -1,19 +1,26 @@
 This is a demo \LaTeX template adapted from one for a TU/e Master of Science thesis. It can of course also be used for theses at other universities (be sure to use a high quality picture!!!) and other types of theses.
 
-The command \textbackslash todo\{\} produces a \todo{The ToDo note} ToDo note in the margin (and introduces some white space in the text unfortunately).
+The command \textbackslash todo\{\} produces a \todo{The ToDo note} ToDo note in the margin (and introduces some white space in the text unfortunately). They can cause also cause margin warnings, as detailed in \href{https://tex.stackexchange.com/questions/23977/what-does-the-warning-about-moved-marginpar-mean}{this TeX Stack Exchange post}. The warnings go away as the todos are completed and removed.
 
-This template has not gone through the full QUT thesis lifecycle, so might still have some formatting differences. I have shared it as the format was an attractive one, and the \LaTeX structure is well organized. It is provided with the understanding it is a work in progress, and the presumption that the differences are small and fixable. 
 
-QUT formatting guidelines are at \url{https://qutvirtual4.qut.edu.au/c/document_library/get_file?uuid=90400693-6c22-4994-bc2b-009c9a100e5f&groupId=16731131&filename=GRC_Presenting-and-Editing_Guidelines.pdf} (internal QUT link).
+This template has not gone through the full QUT thesis lifecycle, so might still have some formatting differences. I have shared it as the format was an attractive one, and the \LaTeX{} structure is well organized. It is provided with the understanding it is a work in progress, and the presumption that the differences are small and fixable. 
 
-Known gaps include:
+QUT formatting guidelines can be found \href{https://qutvirtual4.qut.edu.au/c/document_library/get_file?uuid=90400693-6c22-4994-bc2b-009c9a100e5f&groupId=16731131&filename=GRC_Presenting-and-Editing_Guidelines.pdf}{at this internal QUT link}.
+
+There are some differences versus other QUT thesis templates:
 \begin{itemize}
     \item Title page doesn't include second university for joint theses
     \item Check line spacing (currently set to QUT minimum of 1.5)
     \item Requires adding Statement of Original Authorship
     \item Footer format differences vs example theses. (However, QUT formatting guidelines do not require a footer)
-    \item No specific support for the QUT Diagram and Figure format (lefthand side, legend below), beyond normal \LaTeX features and defaults
+    \item No specific support for the Diagram and Figure format seen in some QUT theses (lefthand side, legend below), beyond normal \LaTeX{} features and defaults
 \end{itemize}
+
+Note that ``There are many factors which influence how the thesis is formatted, such as thesis type, discipline, 
+and referencing style. The QUT Requirements for Presenting a Thesis do not specify any particular 
+thesis format style, other than stating that the line spacing of the main text should be at least 1.5. 
+Students can design their own thesis document format style or modify an existing style, providing it 
+complies with these basic QUT Requirements." (QUT Thesis Preparation Resources Guide, as at 6 July 2023).
 
 This template is made available publicly on github at \url{https://github.com/adamburkegh/QUT-PhD-Formal-IS-Thesis-Template}. Patches are very welcome. If you improve it, please do share.
 

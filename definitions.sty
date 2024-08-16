@@ -1,0 +1,39 @@
+\usepackage{relsize}
+\usepackage{amsfonts}
+% \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{mathabx}
+\usepackage{amssymb}
+
+
+% maths foundations
+
+%% Well-known sets
+\newcommand\naturals{\mathbb{N}}
+\newcommand\reals{\mathbb{R}}
+\newcommand\realspos{\mathbb{R^+}}
+\newcommand{\probrange}{[0,1]}
+\newcommand{\booleans}{\mathbb{B}}
+\DeclareMathOperator{\true}{true}
+\DeclareMathOperator{\false}{false}
+
+% CS foundations
+
+%% Sequences
+\newcommand{\seq}[1]{\langle #1 \rangle}
+\newcommand{\seqset}[1]{{#1}^*}   % The set of sequences over X is X*, but only works for single chars
+\newcommand{\emptyseq}{\langle \rangle}
+
+
+% Process Mining
+
+%% formalisms
+\newcommand{\activities}{A}
+\newcommand\asymbols{A \cup \{\tau\}}
+\newcommand{\traces}{\seqset{\activities}}
+\newcommand\actuniv{\mathcal{A}}
+
+
+%% Petri nets
+\newcommand\ptnetuniv{\mathcal{PN}}
+\newcommand\tranuniv{\mathcal{T}}
+\newcommand\placeuniv{\mathcal{P}}

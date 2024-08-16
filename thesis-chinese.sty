@@ -1,0 +1,58 @@
+% Original version 0.1 Adam Burke
+% July 2023
+\ProvidesPackage{thesis-chinese}
+
+%
+% This small package enables working with words and phrases Chinese characters in the thesis.
+% If the bulk of the thesis is in Chinese, or if large blocks of Chinese text are needed, another
+% solution may be more suitable. An entry point to the joys of Unicode use in LaTeX is at
+% https://www.overleaf.com/learn/latex/Chinese
+%
+% This approach has two parts: 
+% - If you can use the XeLaTeX engine, uncomment \toggletrue{xeuse} below. 
+% - If you are using the pdfLaTeX engine, uncomment \togglefalse{xeuse} below. 
+%
+% With XeLaTeX, unicode mostly just works. With pdfLatex, it mostly just doesn't. But pdfLatex is
+% faster, and if you have to provide latex files to a journal or conference, many conference 
+% proceedings will only support pdfLatex. 
+%
+
+\usepackage{etoolbox}
+
+\newtoggle{xeuse}
+%\toggletrue{xeuse}
+\togglefalse{xeuse}
+
+\iftoggle{xeuse}{
+    \usepackage{xeCJK}
+    % If using XeLateX, set xeuse true
+    % WARNING: REQUIRES XeLaTeX due to use of Chinese unicode characters
+    % https://www.overleaf.com/learn/latex/Chinese
+    \setCJKmainfont{Noto Sans CJK TC}
+}{ %
+    % If using pdfLatex, set xeuse false
+    % \usepackage[utf8]{inputenc} in IEEE sty
+    \usepackage{CJKutf8}
+    \tracinglostchars=2
+}
+
+\newcommand{\xetodo}[1]{\todo[backgroundcolor=lightgray]{#1}}
+
+\iftoggle{xeuse}{
+    \newcommand{\hanzi}{}
+    \newcommand{\tingzi}{}
+}{% else
+    % Three characters aren't working with this package, which prevents using the pdflatex engine
+    % 庶 (U+5EB6) shu4
+    % 吉 (U+5409) ji2
+    % 士 (U+58EB) shi4
+    % 绅 (U+7EC5) shen
+    % 錄 (U+9304) lu
+    \newcommand{\hanzi}{\begin{CJK*}{UTF8}{bkai}}
+    \newcommand{\tingzi}{\end{CJK*}}
+    \DeclareUnicodeCharacter{5EB6}{shu4\xetodo{missing char shu4}}
+    \DeclareUnicodeCharacter{5409}{ji2\xetodo{missing char ji2}}
+    \DeclareUnicodeCharacter{58EB}{shi4 (TODO xe) } % jinshi is used in a figure and todo starts breaking everything
+    %\DeclareUnicodeCharacter{7EC5}{shen\todo{missing char shen}}
+    %\DeclareUnicodeCharacter{9304}{lu\todo{missing char lu}}
+}

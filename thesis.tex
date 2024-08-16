@@ -8,7 +8,25 @@
 \documentclass[a4paper,10pt,twoside]{report}
 
 %all the other includes etc. are done in the thesis.sty file.
+% \usepackage{thesis-chinese}
 \usepackage{thesis}
+
+\addbibresource{references.bib}
+
+% Co-authorships and other forms included inline
+% QUT requires the forms for submission and lodgement, but for aesthetic reasons you may 
+% want to switch them off in other copies
+\newtoggle{inlineforms}
+\togglefalse{inlineforms}
+
+% eformat excludes blank pages after eg title page. For printing, you may wish to switch this off
+\newtoggle{eformat} 
+\togglefalse{eformat}
+
+\newcommand{\blankprintpage}{\iftoggle{eformat}{}{\clearemptydoublepage}}
+
+% Command definitions, particularly for formal elements through the thesis
+\usepackage{definitions}
 
 %
 % These commands need to be defined in order to produce a correct and personalized document
@@ -48,50 +66,41 @@
 
 \normalsize
 
-\clearemptydoublepage
+\blankprintpage
 
 %Sometimes line numbers are nice, uncomment the next line to enable:
 %\linenumbers
 
-%It could be handy to have a list of todos and brainstorms in your thesis
-%\chapter*{*General todos*}\todo{remove this chapter}
-%\input{chapters/general_todos}
-
-%\chapter*{*Brainstorm results*}\todo{remove this chapter}
-%\input{chapters/brainstorm_results}
-
 \chapter*{Abstract}\label{chapter:abstract}
 \input{chapters/abstract}
 
-\clearemptydoublepage
+\blankprintpage
 
 %An executive summary if you want:
 %\chapter*{Executive summary}\label{chapter:executive_summary}
 %\input{chapters/executive_summary}
 
-%\clearemptydoublepage
+%\blankprintpage
 
-
-\chapter*{Preface}\label{chapter:preface}
-\input{chapters/preface}
-
-\clearemptydoublepage
 
 \tableofcontents
 
-\clearemptydoublepage
+\blankprintpage
 
 \listoffigures
 
-\clearemptydoublepage
+\blankprintpage
 
 \listoftables
 
-\clearemptydoublepage
+\blankprintpage
 
 \lstlistoflistings
 
-\clearemptydoublepage
+% List of Symbols might be useful
+\include{supplement/glossary}
+
+\blankprintpage
 
 \chapter{Introduction}\label{chapter:introduction}
 \setcounter{page}{0}
@@ -99,38 +108,36 @@
 %from here on, start the 'real' page numbering, from 1, with normal digits
 \input{chapters/introduction}
 
-\clearemptydoublepage
+\blankprintpage
 
 \chapter{Preliminaries}\label{chapter:preliminaries}
 \input{chapters/preliminaries}
 
-\clearemptydoublepage
+\blankprintpage
 
 \chapter{First Real Chapter}\label{chapter:first_real_chapter}
 \input{chapters/first_real_chapter}
 
-\clearemptydoublepage
+\blankprintpage
 
 \chapter{Second Real Chapter}\label{chapter:second_real_chapter}
 \input{chapters/second_real_chapter}
 
-\clearemptydoublepage
+\blankprintpage
 
 \chapter{Conclusions}\label{chapter:conclusions}
 \input{chapters/conclusions}
 
-\clearemptydoublepage
-
-%Choose a good bibliography style, plain would do often, but these might be nice too
-%\bibliographystyle{these}
-\bibliographystyle{plain}
-\bibliography{references}
-
-\clearemptydoublepage
+\blankprintpage
 
 \appendix
 \addcontentsline{toc}{chapter}{Appendix}
 
 \input{appendices/main}
+
+\blankprintpage
+
+\printbibliography[heading=bibintoc]
+
 
 \end{document}
